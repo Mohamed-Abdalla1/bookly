@@ -1,5 +1,8 @@
+import 'package:booky_app/constants.dart';
 import 'package:booky_app/core/utils/assets.dart';
+import 'package:booky_app/features/home/presentation/views/home.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -18,9 +21,17 @@ class _SplashViewBodyState extends State<SplashViewBody>
     super.initState();
 
     sliding();
-    
+    navigateToHome();
   }
 
+  void navigateToHome() {
+    Future.delayed(
+      const Duration(seconds: kNavigate),
+      () {
+        Get.to(const HomeView(), transition: Transition.fadeIn);
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,9 +67,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
     );
   }
 
-  
   void sliding() {
-     animationController = AnimationController(
+    animationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 1),
     );
