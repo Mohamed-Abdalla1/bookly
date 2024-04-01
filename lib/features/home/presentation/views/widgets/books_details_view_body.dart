@@ -1,5 +1,6 @@
 import 'package:booky_app/core/utils/styles.dart';
 import 'package:booky_app/features/home/presentation/views/widgets/book_details_app_bar.dart';
+import 'package:booky_app/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:booky_app/features/home/presentation/views/widgets/custom_list_view_item.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class BookDetailsViewBody extends StatelessWidget {
         children: [
           const BookDetailsAppBAr(),
           SizedBox(
-            height: MediaQuery.of(context).size.height * .23,
+            height: MediaQuery.of(context).size.height * .27,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: width * 0.2),
               child: const CustomImage(),
@@ -38,7 +39,12 @@ class BookDetailsViewBody extends StatelessWidget {
               style: Styles.textSize18.copyWith(fontStyle: FontStyle.italic),
             ),
           ),
-          
+          const SizedBox(
+            height: 20,
+          ),
+          const BookRating(
+            mainAxisAlignment: MainAxisAlignment.center,
+          )
         ],
       ),
     );
