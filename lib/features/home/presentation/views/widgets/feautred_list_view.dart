@@ -1,4 +1,4 @@
-import 'package:booky_app/features/home/presentation/views/widgets/feauture_list_view_item.dart';
+import 'package:booky_app/features/home/presentation/views/widgets/custom_list_view_item.dart';
 import 'package:flutter/material.dart';
 
 class FeaturedListView extends StatelessWidget {
@@ -14,7 +14,7 @@ class FeaturedListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return const Padding(
             padding: EdgeInsets.only(right: 16.0),
-            child: FeatureListviewItem(),
+            child: CustomListViewItem(),
           );
         },
       ),

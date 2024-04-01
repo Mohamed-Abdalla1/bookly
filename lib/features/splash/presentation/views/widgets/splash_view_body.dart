@@ -1,9 +1,7 @@
 import 'package:booky_app/constants.dart';
 import 'package:booky_app/core/utils/app_router.dart';
 import 'package:booky_app/core/utils/assets.dart';
-import 'package:booky_app/features/home/presentation/views/home.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
