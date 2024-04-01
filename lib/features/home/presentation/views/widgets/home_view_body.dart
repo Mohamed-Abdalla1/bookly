@@ -1,5 +1,5 @@
 import 'package:booky_app/core/utils/styles.dart';
-import 'package:booky_app/features/home/presentation/views/widgets/best_seller_listview_item.dart';
+import 'package:booky_app/features/home/presentation/views/widgets/best_seller_listview.dart';
 import 'package:booky_app/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:booky_app/features/home/presentation/views/widgets/feautred_list_view.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +26,7 @@ class HomeViewBody extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          BestSellerListViewItem()
+          Expanded(child: BestSellerListView())
         ],
       ),
     );
