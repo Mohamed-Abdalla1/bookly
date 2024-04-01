@@ -1,3 +1,4 @@
+import 'package:booky_app/core/utils/styles.dart';
 import 'package:booky_app/features/home/presentation/views/widgets/book_details_app_bar.dart';
 import 'package:booky_app/features/home/presentation/views/widgets/custom_list_view_item.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,24 @@ class BookDetailsViewBody extends StatelessWidget {
               child: const CustomImage(),
             ),
           ),
+          const SizedBox(
+            height: 45,
+          ),
+          const Text(
+            'The Jungle Book',
+            style: Styles.textSize30,
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Opacity(
+            opacity: 0.7,
+            child: Text(
+              'mark ssoemjas',
+              style: Styles.textSize18.copyWith(fontStyle: FontStyle.italic),
+            ),
+          ),
+          
         ],
       ),
     );
