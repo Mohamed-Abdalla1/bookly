@@ -1,4 +1,6 @@
 import 'package:booky_app/core/utils/styles.dart';
+import 'package:booky_app/core/widgets/custom_button.dart';
+import 'package:booky_app/features/home/presentation/views/widgets/book_action.dart';
 import 'package:booky_app/features/home/presentation/views/widgets/book_details_app_bar.dart';
 import 'package:booky_app/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:booky_app/features/home/presentation/views/widgets/custom_list_view_item.dart';
@@ -44,7 +46,22 @@ class BookDetailsViewBody extends StatelessWidget {
           ),
           const BookRating(
             mainAxisAlignment: MainAxisAlignment.center,
-          )
+          ),
+          const SizedBox(
+            height: 40,
+          ),
+          const BookAction(),
+          const SizedBox(
+            height: 40,
+          ),
+          const Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'You can also like',
+              style: Styles.textSize18,
+            ),
+          ),
+          Similar
         ],
       ),
     );
