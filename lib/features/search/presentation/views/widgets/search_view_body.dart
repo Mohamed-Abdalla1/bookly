@@ -1,4 +1,5 @@
 import 'package:booky_app/core/widgets/custom_text_field.dart';
+import 'package:booky_app/features/search/presentation/views/widgets/search_listview_result.dart';
 import 'package:flutter/material.dart';
 
 class SearchViewBody extends StatelessWidget {
@@ -14,6 +15,10 @@ class SearchViewBody extends StatelessWidget {
         child: Column(
           children: [
             CustomTextField(),
+            SizedBox(
+              height: 40,
+            ),
+            Expanded(child: SearchListViewResult())
           ],
         ));
   }
