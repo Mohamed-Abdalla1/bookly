@@ -12,7 +12,7 @@ abstract class AppRouter {
     GoRoute(
       path: '/',
       builder: (context, state) {
-        return const SearchView();
+        return const SplashView();
       },
     ),
     GoRoute(

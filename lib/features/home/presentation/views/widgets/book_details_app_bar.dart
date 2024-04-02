@@ -1,4 +1,6 @@
+import 'package:booky_app/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BookDetailsAppBAr extends StatelessWidget {
   const BookDetailsAppBAr({super.key});
@@ -10,7 +12,9 @@ class BookDetailsAppBAr extends StatelessWidget {
       child: Row(
         children: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).push(AppRouter.kHomeView);
+            },
             icon: const Icon(
               Icons.close,
               size: 30,

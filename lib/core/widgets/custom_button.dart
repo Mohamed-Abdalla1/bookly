@@ -17,7 +17,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 50,
-      width: 180,
+      width: MediaQuery.of(context).size.width * 0.4,
       child: TextButton(
           style: TextButton.styleFrom(
             shape: RoundedRectangleBorder(borderRadius: borderRadius),

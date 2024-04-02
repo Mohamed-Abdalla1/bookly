@@ -8,7 +8,7 @@ abstract class Failure {
 
 class ServerFailure extends Failure {
   ServerFailure(super.errMessage);
-  factory ServerFailure.fromDioError(DioError dioError) {
+  factory ServerFailure.fromDioError(DioException dioError) {
     switch (dioError.type) {
       case DioExceptionType.connectionTimeout:
         return ServerFailure('connection time out with server');
