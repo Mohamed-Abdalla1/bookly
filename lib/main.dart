@@ -7,7 +7,7 @@ import 'package:booky_app/features/home/presentation/manager/newest%20books/newe
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+void main() async{
   setupServiceLocator();
   runApp(const BooklyApp());
 }
@@ -31,6 +31,7 @@ class BooklyApp extends StatelessWidget {
                 ..fetchNewestBooks(),
         ),
       ],
+
       child: MaterialApp.router(
         routerConfig: AppRouter.router,
         debugShowCheckedModeBanner: false,
