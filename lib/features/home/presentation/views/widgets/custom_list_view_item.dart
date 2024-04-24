@@ -1,30 +1,29 @@
 import 'package:booky_app/core/utils/app_router.dart';
 import 'package:booky_app/core/utils/assets.dart';
+import 'package:booky_app/core/widgets/custom_loading.dart';
+import 'package:booky_app/features/home/data/models/book_model/book_model.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomImage extends StatelessWidget {
-  const CustomImage({super.key});
-
+  const CustomImage({super.key, required this.book});
+  final String book;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => GoRouter.of(context).push(AppRouter.kBookDetails),
       child: AspectRatio(
-        aspectRatio: 2.7 / 4,
-        child: Container(
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(8),
-            ),
-            color: Colors.lightGreenAccent,
-            image: DecorationImage(
+          aspectRatio: 2.7 / 4,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: CachedNetworkImage(
+              imageUrl: book,
               fit: BoxFit.fill,
-              image: AssetImage(AssetsData.test),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+              placeholder: (context, url) => const CustomLoadingWidget(),
             ),
-          ),
-        ),
-      ),
+          )),
     );
   }
 }

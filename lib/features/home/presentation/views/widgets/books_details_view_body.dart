@@ -1,4 +1,5 @@
 import 'package:booky_app/core/utils/styles.dart';
+import 'package:booky_app/features/home/data/models/book_model/book_model.dart';
 import 'package:booky_app/features/home/presentation/views/widgets/book_action.dart';
 import 'package:booky_app/features/home/presentation/views/widgets/book_details_app_bar.dart';
 import 'package:booky_app/features/home/presentation/views/widgets/book_rating.dart';
@@ -25,7 +26,7 @@ class BookDetailsViewBody extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * .27,
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: width * 0.2),
-                      child: const CustomImage(),
+                      // child: const CustomImage(bookModel: ,),
                     ),
                   ),
                   const SizedBox(
