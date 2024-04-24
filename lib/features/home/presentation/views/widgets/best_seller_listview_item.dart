@@ -20,7 +20,7 @@ class BestSellerListViewItem extends StatelessWidget {
           SizedBox(
             height: 125,
             child: AspectRatio(
-              aspectRatio: 2.5 / 4,
+              aspectRatio: 2 / 4,
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.all(

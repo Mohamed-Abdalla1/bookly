@@ -1,9 +1,6 @@
 import 'package:booky_app/core/utils/styles.dart';
-import 'package:booky_app/features/home/data/models/book_model/book_model.dart';
 import 'package:booky_app/features/home/presentation/views/widgets/book_action.dart';
 import 'package:booky_app/features/home/presentation/views/widgets/book_details_app_bar.dart';
-import 'package:booky_app/features/home/presentation/views/widgets/book_rating.dart';
-import 'package:booky_app/features/home/presentation/views/widgets/custom_list_view_item.dart';
 import 'package:booky_app/features/home/presentation/views/widgets/similiar_list%20view.dart';
 import 'package:flutter/material.dart';
 

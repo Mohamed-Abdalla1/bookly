@@ -1,4 +1,3 @@
-import 'package:booky_app/core/errors/failures.dart';
 import 'package:booky_app/core/widgets/custom_error_message.dart';
 import 'package:booky_app/core/widgets/custom_loading.dart';
 import 'package:booky_app/features/home/presentation/manager/featured%20books/featured_books_cubit.dart';

@@ -1,7 +1,5 @@
 import 'package:booky_app/core/utils/app_router.dart';
-import 'package:booky_app/core/utils/assets.dart';
 import 'package:booky_app/core/widgets/custom_loading.dart';
-import 'package:booky_app/features/home/data/models/book_model/book_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -14,7 +12,7 @@ class CustomImage extends StatelessWidget {
     return GestureDetector(
       onTap: () => GoRouter.of(context).push(AppRouter.kBookDetails),
       child: AspectRatio(
-          aspectRatio: 2.7 / 4,
+          aspectRatio: 2.5 / 4,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(16),
             child: CachedNetworkImage(
