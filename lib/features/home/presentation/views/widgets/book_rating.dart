@@ -2,31 +2,37 @@ import 'package:booky_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class BookRating extends StatelessWidget {
-  const BookRating({super.key, required this.mainAxisAlignment});
+  const BookRating(
+      {super.key,
+      required this.mainAxisAlignment,
+      required this.rating,
+      required this.count});
   final MainAxisAlignment mainAxisAlignment;
+  final num rating;
+  final int count;
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       mainAxisAlignment: mainAxisAlignment,
-      children:const [
-        Icon(
+      children: [
+        const Icon(
           Icons.star,
           color: Colors.yellow,
         ),
-        SizedBox(
+        const SizedBox(
           width: 8,
         ),
         Text(
-          '4.8',
+          '$rating',
           style: Styles.textSize16,
         ),
-        SizedBox(
+        const SizedBox(
           width: 5,
         ),
         Opacity(
             opacity: 0.7,
             child: Text(
-              '(4888)',
+              '$count',
               style: Styles.textSize16,
             ))
       ],

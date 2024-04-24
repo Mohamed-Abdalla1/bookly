@@ -1,18 +1,18 @@
 import 'package:booky_app/core/utils/app_router.dart';
-import 'package:booky_app/core/utils/assets.dart';
 import 'package:booky_app/core/utils/styles.dart';
+import 'package:booky_app/features/home/data/models/book_model/book_model.dart';
 import 'package:booky_app/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
-
+  const BestSellerListViewItem({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBookDetails);
+        GoRouter.of(context).push(AppRouter.kBookDetails, extra: bookModel);
       },
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,14 +22,15 @@ class BestSellerListViewItem extends StatelessWidget {
             child: AspectRatio(
               aspectRatio: 2.5 / 4,
               child: Container(
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(
                     Radius.circular(8),
                   ),
                   color: Colors.lightGreenAccent,
                   image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: AssetImage(AssetsData.test),
+                    image: NetworkImage(
+                        bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),
                   ),
                 ),
               ),
@@ -38,45 +39,52 @@ class BestSellerListViewItem extends StatelessWidget {
           const SizedBox(
             width: 30,
           ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width * 0.5,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'The Jungle Book',
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: Styles.textSize20,
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Opacity(
-                  opacity: 0.7,
-                  child: Text(
-                    'mark ssoemjas',
+          Expanded(
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width * 0.5,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    bookModel.volumeInfo.title!,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style:
-                        Styles.textSize16.copyWith(fontStyle: FontStyle.italic),
+                    style: Styles.textSize20,
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      r'99 $',
-                      style: Styles.textSize22,
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Opacity(
+                    opacity: 0.7,
+                    child: Text(
+                      bookModel.volumeInfo.authors?[0] ?? '',
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: Styles.textSize16
+                          .copyWith(fontStyle: FontStyle.italic),
                     ),
-                    BookRating(mainAxisAlignment: MainAxisAlignment.start),
-                  ],
-                )
-              ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Free',
+                        style: Styles.textSize22,
+                      ),
+                      BookRating(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        rating:
+                            bookModel.volumeInfo.averageRating?.round() ?? 0,
+                        count: bookModel.volumeInfo.ratingsCount?.toInt() ?? 0,
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           )
         ],
